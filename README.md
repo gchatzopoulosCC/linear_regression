@@ -24,9 +24,9 @@ The program uses an open-source API to convert the prices to euros.
 - [tkinter](https://docs.python.org/3/library/tkinter.html) installed
 - [git](https://git-scm.com/downloads) installed
 ### Commands
-Clone the repository
+Clone the repository (using https or other provided methods)
 ```bash
-git clone <repository_url>
+git clone https://github.com/gchatzopoulosCC/linear_regression.git
 ```
 Create a virtual environment
 ```bash
