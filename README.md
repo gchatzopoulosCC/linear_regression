@@ -1,16 +1,16 @@
 # Simple Linear Regression Model for Flight Tickets
-This is a simple linear regression program that retrieves data from a prompted CSV file of flight tickets and returns their R-squared, their coefficients and a 3D representation figure. 
+This simple linear regression program retrieves data from a prompted CSV file of flight tickets and returns their R-squared, coefficients and 3D representation figures. 
 
 It uses the following formula for the model: `Price = Intercept + Duration Coefficient * Duration + Demand Coefficient * Demand`
 ## Application
 ### Requirements
-- A CSV file with the following columns: 'Airline', 'Duration', and 'Price'.
+- A CSV file with the following columns: 'Airline', 'Duration', 'Total_Stops' and 'Price'.
 - The currency of the prices in the CSV file.
 - The duration of the flight in the format 'hh mm'.
 ### Output
 - The R-squared value.
 - The coefficients of the model.
-- A 3D plot of the data and the regression plane.
+- 3D plot of the data and the regression planes.
 ### Assumptions
 - The price is linearly dependent on the duration and demand of the flight.
 ### Note
