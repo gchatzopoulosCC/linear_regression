@@ -91,7 +91,7 @@ This should be the expected output:
 HELLO!
 This is a simple linear regression program that retrieves data from a prompted CSV file of flight tickets and returns their R-squared, their coefficients and a 3D representation figure.
 This program uses this formula for the model: Price = Intercept + Distance Coefficient * Distance Coefficient + Stops Coefficient * Stops + Demand Coefficient * Demand
-Requirement: A CSV file with the following columns: 'Airline', 'Route', and 'Price'.
+Requirement: A CSV file with the following columns: 'Airline', 'Route', 'Total_Stops', and 'Price'.
 Requirement: The currency of the prices in the CSV file.
 Requirement: An internet connection to get the exchange rate.
 Requirement: The Route of the flight in the format 'IATA ? IATA ? ... ? IATA'.
