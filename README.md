@@ -23,7 +23,7 @@ It uses the following formula for the model: `Price = Intercept + Distance Coeff
 #### Requirements
 - A CSV file with the following columns: 'Airline', 'Route', 'Total_Stops' and 'Price'.
 - The currency of the prices in the CSV file.
-- The route of the flight in the format 'IATA ? IATA ? ... ? IATA'.
+- The Route of the flight in the format 'IATA ? IATA ? ... ? IATA'.
 #### Output
 - The R-squared value.
 - The coefficients of the model.
@@ -94,7 +94,7 @@ This program uses this formula for the model: Price = Intercept + Distance Coeff
 Requirement: A CSV file with the following columns: 'Airline', 'Route', and 'Price'.
 Requirement: The currency of the prices in the CSV file.
 Requirement: An internet connection to get the exchange rate.
-Requirement: The route of the flight in the format 'IATA ? IATA ? ... ? IATA'.
+Requirement: The Route of the flight in the format 'IATA ? IATA ? ... ? IATA'.
 Output: The R-squared value.
 Output: The coefficients of the model.
 Output: 3D plots of the data and the regression planes.
