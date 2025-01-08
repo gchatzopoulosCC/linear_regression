@@ -139,7 +139,7 @@ def intro():
         "This program uses this formula for the model: Price = Intercept + Distance Coefficient * Distance Coefficient + Stops Coefficient * Stops + Demand Coefficient * Demand"
     )
     print(
-        "Requirement: A CSV file with the following columns: 'Airline', 'Route', 'Stops', and 'Price'."
+        "Requirement: A CSV file with the following columns: 'Airline', 'Route', 'Total_Stops', and 'Price'."
     )
     print("Requirement: The currency of the prices in the CSV file.")
     print("Requirement: An internet connection to get the exchange rate.")
