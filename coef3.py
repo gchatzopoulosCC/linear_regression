@@ -143,7 +143,7 @@ def intro():
     )
     print("Requirement: The currency of the prices in the CSV file.")
     print("Requirement: An internet connection to get the exchange rate.")
-    print("Requirement: The route of the flight in the format 'IATA ? IATA ? ... ? IATA'")
+    print("Requirement: The Route of the flight in the format 'IATA ? IATA ? ... ? IATA'")
     print("Output: The R-squared value.")
     print("Output: The coefficients of the model.")
     print("Output: 3D plots of the data and the regression planes.")
