@@ -11,7 +11,6 @@ import numpy as np
 
 # Helpers
 def convert_stops(stops):
-    """Converts the number of stops to a numerical value."""
     # Consider NAN values
     if pd.isna(stops):
         return np.nan
@@ -25,7 +24,6 @@ def convert_stops(stops):
         raise ValueError(f"Unexpected stops format: {stops}")
 
 def convert_to_minutes(time):
-    """Converts a time in the format 'hh mm' to minutes."""
     parts = time.split(" ")
     if len(parts) == 2:
         h, m = parts
