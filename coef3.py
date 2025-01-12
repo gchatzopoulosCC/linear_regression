@@ -64,32 +64,32 @@ def display_model(model, data, y):
 
     xx, yy = np.meshgrid(np.linspace(data["Distance"].min(), data["Distance"].max(), 100),
                          np.linspace(data["Stops"].min(), data["Stops"].max(), 100))
-    zz = model.predict(np.c_[xx.ravel(), yy.ravel(), np.full(xx.ravel().shape, data["Demand"].mean())]).reshape(xx.shape)
+    zz = model.predict(np.c_[xx.ravel(), yy.ravel(), np.full(xx.ravel().shape, data["Volume"].mean())]).reshape(xx.shape)
     ax.plot_surface(xx, yy, zz, color='red', alpha=0.5)
 
-    # Plot Distance vs Demand vs Price
+    # Plot Distance vs Volume vs Price
     ax = fig.add_subplot(132, projection='3d')
-    ax.scatter(data["Distance"], data["Demand"], y, color="blue")
+    ax.scatter(data["Distance"], data["Volume"], y, color="blue")
     ax.set_xlabel("Distance")
-    ax.set_ylabel("Demand")
+    ax.set_ylabel("Volume")
     ax.set_zlabel("Price (in euros)")
-    ax.set_title("Price vs Distance vs Demand")
+    ax.set_title("Price vs Distance vs Volume")
 
     xx, yy = np.meshgrid(np.linspace(data["Distance"].min(), data["Distance"].max(), 100),
-                         np.linspace(data["Demand"].min(), data["Demand"].max(), 100))
+                         np.linspace(data["Volume"].min(), data["Volume"].max(), 100))
     zz = model.predict(np.c_[xx.ravel(), np.full(xx.ravel().shape, data["Stops"].mean()), yy.ravel()]).reshape(xx.shape)
     ax.plot_surface(xx, yy, zz, color='red', alpha=0.5)
 
-    # Plot Stops vs Demand vs Price
+    # Plot Stops vs Volume vs Price
     ax = fig.add_subplot(133, projection='3d')
-    ax.scatter(data["Stops"], data["Demand"], y, color="blue")
+    ax.scatter(data["Stops"], data["Volume"], y, color="blue")
     ax.set_xlabel("Stops")
-    ax.set_ylabel("Demand")
+    ax.set_ylabel("Volume")
     ax.set_zlabel("Price (in euros)")
-    ax.set_title("Price vs Stops vs Demand")
+    ax.set_title("Price vs Stops vs Volume")
 
     xx, yy = np.meshgrid(np.linspace(data["Stops"].min(), data["Stops"].max(), 100),
-                         np.linspace(data["Demand"].min(), data["Demand"].max(), 100))
+                         np.linspace(data["Volume"].min(), data["Volume"].max(), 100))
     zz = model.predict(np.c_[np.full(xx.ravel().shape, data["Distance"].mean()), xx.ravel(), yy.ravel()]).reshape(xx.shape)
     ax.plot_surface(xx, yy, zz, color='red', alpha=0.5)
 
@@ -129,7 +129,7 @@ def intro():
         "This is a simple linear regression program that retrieves data from a prompted CSV file of flight tickets and returns their R-squared, their coefficients and a 3D representation figure."
     )
     print(
-        "This program uses this formula for the model: Price = Intercept + Distance Coefficient * Distance Coefficient + Stops Coefficient * Stops + Demand Coefficient * Demand"
+        "This program uses this formula for the model: Price = Intercept + Distance Coefficient * Distance Coefficient + Stops Coefficient * Stops + Volume Coefficient * Volume"
     )
     print(
         "Requirement: A CSV file with the following columns: 'Airline', 'Route', 'Total_Stops', and 'Price'."
@@ -141,7 +141,7 @@ def intro():
     print("Output: The coefficients of the model.")
     print("Output: 3D plots of the data and the regression planes.")
     print(
-        "Assumption: The price is linearly dependent on the Distance and demand of the flight."
+        "Assumption: The price is linearly dependent on the Distance and Volume of the flight."
     )
     print("Note: The program uses an open-source API to convert the prices to euros.")
     print("You can exit the program at any time by prompting 'exit'.")
@@ -190,13 +190,13 @@ def main():
     data = data.dropna()
 
     # Get the appropriate columns
-    data["Demand"] = data["Airline"].map(data["Airline"].value_counts())
+    data["Volume"] = data["Airline"].map(data["Airline"].value_counts())
 
     # Fill NaN values with 0 and convert to integers
     data["Stops"] = data["Stops"].fillna(0).astype(int)
 
     # Get the independent and dependent variables
-    X = data[["Distance", "Stops", "Demand"]]
+    X = data[["Distance", "Stops", "Volume"]]
     y = data["Price"].apply(
         convert_to_euro, currency=currency, exchange_rate=exchange_rate
     )
@@ -210,11 +210,11 @@ def main():
     print(f"R-squared: {r_squared}")
 
     # Get the coefficients
-    Distance_coef, stops_coef, demand_coef = model.coef_
+    Distance_coef, stops_coef, Volume_coef = model.coef_
     print(f"Intercept: {model.intercept_}")
     print(f"Distance coefficient: {Distance_coef}")
     print(f"Stops coefficient: {stops_coef}")
-    print(f"Demand coefficient: {demand_coef}")
+    print(f"Volume coefficient: {Volume_coef}")
 
     display_model(model, data, y)
 
