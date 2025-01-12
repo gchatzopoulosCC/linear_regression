@@ -4,14 +4,11 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 
 import matplotlib.pyplot as plt
-
-import matplotlib.pyplot as plt
 import numpy as np
 
 
 # Helpers
 def convert_stops(stops):
-    """Converts the number of stops to a numerical value."""
     # Consider NAN values
     if pd.isna(stops):
         return np.nan
@@ -25,7 +22,6 @@ def convert_stops(stops):
         raise ValueError(f"Unexpected stops format: {stops}")
 
 def convert_to_minutes(time):
-    """Converts a time in the format 'hh mm' to minutes."""
     parts = time.split(" ")
     if len(parts) == 2:
         h, m = parts
@@ -101,16 +97,13 @@ def display_model(model, data, y):
 
 
 def get_latitude(airport, airport_coords):
-    """Get the latitude of an airport."""
     return airport_coords.get(airport, (np.nan, np.nan))[0]
 
 def get_longitude(airport, airport_coords):
-    """Get the longitude of an airport."""
     return airport_coords.get(airport, (np.nan, np.nan))[1]
 
 
 def get_distance(route, airport_coords):
-    """Get the distance between two airports."""
     from geopy.distance import geodesic
 
     if pd.isna(route):
