@@ -174,9 +174,6 @@ def main():
     if currency not in exchange_rate["eur"]:
         print(f"Currency {currency} not supported.")
         return 1
-    
-    # Data
-    data = pd.read_csv("Data_Train.csv")
 
     # Convert stops
     data["Stops"] = data["Total_Stops"].apply(convert_stops)
