@@ -3,7 +3,7 @@ This simple linear regression program retrieves data from a prompted CSV file of
 
 ## Applications
 ### coef2.py
-It uses the following formula for the model: `Price = Intercept + Duration Coefficient * Duration + Stops Coefficient * Stops + Demand Coefficient * Demand`
+It uses the following formula for the model: `Price = Intercept + Duration Coefficient * Duration + Stops Coefficient * Stops + Volume Coefficient * Volume`
 #### Requirements
 - A CSV file with the following columns: 'Airline', 'Duration', 'Total_Stops' and 'Price'.
 - The currency of the prices in the CSV file.
@@ -19,7 +19,7 @@ It uses the following formula for the model: `Price = Intercept + Duration Coeff
 The program uses an open-source API to convert the prices to euros.
 ```
 ### coef3.py
-It uses the following formula for the model: `Price = Intercept + Distance Coefficient * Distance + Stops Coefficient * Stops + Demand Coefficient * Demand`
+It uses the following formula for the model: `Price = Intercept + Distance Coefficient * Distance + Stops Coefficient * Stops + Volume Coefficient * Volume`
 #### Requirements
 - A CSV file with the following columns: 'Airline', 'Route', 'Total_Stops' and 'Price'.
 - The currency of the prices in the CSV file.
@@ -68,7 +68,7 @@ This should be the expected output:
 (.venv) mycomputer$ python coef.py
 HELLO!
 This is a simple linear regression program that retrieves data from a prompted CSV file of flight tickets and returns their R-squared, their coefficients and a 3D representation figure.
-This program uses this formula for the model: Price = Intercept + Duration Coefficient * Duration Coefficient + Demand Coefficient * Demand
+This program uses this formula for the model: Price = Intercept + Duration Coefficient * Duration Coefficient + Volume Coefficient * Volume
 Requirement: A CSV file with the following columns: 'Airline', 'Duration', and 'Price'.
 Requirement: The currency of the prices in the CSV file.
 Requirement: An internet connection to get the exchange rate.
@@ -90,7 +90,7 @@ This should be the expected output:
 ```git
 HELLO!
 This is a simple linear regression program that retrieves data from a prompted CSV file of flight tickets and returns their R-squared, their coefficients and a 3D representation figure.
-This program uses this formula for the model: Price = Intercept + Distance Coefficient * Distance Coefficient + Stops Coefficient * Stops + Demand Coefficient * Demand
+This program uses this formula for the model: Price = Intercept + Distance Coefficient * Distance Coefficient + Stops Coefficient * Stops + Volume Coefficient * Volume
 Requirement: A CSV file with the following columns: 'Airline', 'Route', 'Total_Stops', and 'Price'.
 Requirement: The currency of the prices in the CSV file.
 Requirement: An internet connection to get the exchange rate.
